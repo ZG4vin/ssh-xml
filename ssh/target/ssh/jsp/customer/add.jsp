@@ -10,7 +10,7 @@
 <META content="MSHTML 6.00.2900.3492" name=GENERATOR>
 </HEAD>
 <BODY>
-	<FORM id=form1 name=form1 action="${pageContext.request.contextPath }/customer/CustomerServlet?method=addCustomer" method=post>
+	<FORM id=form1 name=form1 action="${pageContext.request.contextPath }/customer/addCustomer.action" method=post>
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
 			<TBODY>
 				<TR>

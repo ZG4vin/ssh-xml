@@ -13,5 +13,8 @@
         <action name="findAllCustomer" class="com.gavin.web.action.CustomerAction" method="findAllCustomer">
             <result name="findAllCustomer">/jsp/customer/list.jsp</result>
         </action>
+        <action name="addCustomer" class="com.gavin.web.action.CustomerAction" method="addCustomer">
+            <result name="listCustomer" type="redirectAction">findAllCustomer</result>
+        </action>
     </package>
 </struts>

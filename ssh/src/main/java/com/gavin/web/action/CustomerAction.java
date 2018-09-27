@@ -3,13 +3,20 @@ package com.gavin.web.action;
 import com.gavin.domain.Customer;
 import com.gavin.service.ICustomerService;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
 
 import java.util.List;
 
 /**
  * 客户的动作类
  */
-public class CustomerAction extends ActionSupport {
+public class CustomerAction extends ActionSupport implements ModelDriven<Customer> {
+    private Customer customer=new Customer();
+
+    @Override
+    public Customer getModel() {
+        return customer;
+    }
 
     private List<Customer> customers;
 
@@ -36,6 +43,14 @@ public class CustomerAction extends ActionSupport {
         return "findAllCustomer";
     }
 
+    /**
+     * 保存客户
+     * @return
+     */
+    public String addCustomer(){
+        customerService.saveCustomer(customer);
+        return "listCustomer";
+    }
 
 
 

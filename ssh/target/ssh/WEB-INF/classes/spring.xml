@@ -16,6 +16,10 @@
 
     <!--spring.xml没有分模块配置：全部写在了一个xml中，根据需求分即可-->
 
+    <!--配置action,     xml版要手动改成多例，注解则不用-->
+    <bean id="customerAction" class="com.gavin.web.action.CustomerAction" scope="prototype">
+        <property name="customerService" ref="customerService"/>
+    </bean>
 
     <!--配置service-->
     <bean id="customerService" class="com.gavin.service.impl.CustomerServiceImpl">
@@ -24,6 +28,7 @@
 
     <!--配置dao-->
     <bean id="customerDao" class="com.gavin.dao.impl.CustomerDaoImpl">
+        <!--由于customerDaoImpl继承了HibernateDaoSupport类，所以直接注入hibernateTemplate或sessionFactory都可以获取到hibernateTemplate操作对象-->
         <!--<property name="hibernateTemplate" ref="hibernateTemplate"/>-->
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
